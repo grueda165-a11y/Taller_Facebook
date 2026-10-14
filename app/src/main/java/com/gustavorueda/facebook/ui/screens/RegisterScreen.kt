@@ -1,4 +1,4 @@
-package com.gustavorueda.facebook
+package com.gustavorueda.facebook.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -14,14 +14,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
-@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FacebookRegisterScreen() {
+fun FacebookRegisterScreen(onClickBack : ()-> Unit) {
     var firstName by remember { mutableStateOf("") }
     var lastName by remember { mutableStateOf("") }
     var emailOrPhone by remember { mutableStateOf("") }
@@ -36,8 +35,10 @@ fun FacebookRegisterScreen() {
             TopAppBar(
                 title = { },
                 navigationIcon = {
-                    IconButton(onClick = {}) {
-
+                    IconButton(onClick = {
+                        onClickBack()
+                    }) {
+                        Text("Ir Atras")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -201,7 +202,9 @@ fun FacebookRegisterScreen() {
             Spacer(modifier = Modifier.height(16.dp))
 
             // Ir a Iniciar sesión
-            TextButton(onClick = {}) {
+            TextButton(onClick = {
+
+            }) {
                 Text(
                     text = "¿Ya tienes una cuenta?",
                     color = FacebookBlue
